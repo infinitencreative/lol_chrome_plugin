@@ -62,6 +62,12 @@ html, body, * {
     border: 1px solid #fff;
     border-bottom: 1px solid #cfba6b;
 }
+.game-content .tab-content {
+    padding: 0 10px;
+}
+.game-content .tab-content .game-intro {
+    margin-bottom: 20px;
+}
 
 /* game footer */
 .game-footer {
