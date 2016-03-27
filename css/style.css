@@ -1,0 +1,78 @@
+/* global */
+html, body, * {
+    font-family: 'Lato', 'Microsoft Yahei', sans-serif;
+    font-weight: 300;
+}
+
+/* game header */
+.game-header {
+    width: 100%;
+    background-color: #cfba6b;
+        margin-bottom: 10px;
+}
+.game-header a {
+    color: #fff;
+}
+.game-header a:hover {
+    text-decoration: none;
+}
+.game-header .game-header-logo {
+    display: inline-block;
+    height: 38px;
+    margin: 0;
+    margin-left: 15px;
+    padding: 4px 0 9px 0;
+}
+.game-header .game-navbar ul {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+.game-header .game-navbar ul li {
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+}
+.game-header .game-navbar ul li:hover {
+    background-color: #d3c7a9;
+    color: #d3c7a9;
+    text-decoration: none;
+}
+
+/* game content */
+.game-content {
+    min-width: 500px;
+    min-height: 500px;
+}
+.game-content .nav-tabs>li>a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #cfba6b;
+}
+.game-content .nav-tabs {
+    border-bottom: none;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: 1px solid #fff;
+    border-radius: 0;
+    border-bottom: 1px solid #cfba6b;
+}
+.game-content .nav-tabs>li>a:hover {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom: 1px solid #cfba6b;
+}
+
+/* game footer */
+.game-footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    border-top: 1px solid #cfba6b;
+}
+.game-footer p {
+    margin: 0;
+    padding: 10px 0;
+    color: #cfba6b;
+}
