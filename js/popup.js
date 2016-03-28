@@ -1,3 +1,9 @@
+/**
+ *
+ * get data
+ *
+ */
+
 // get game intro
 $.ajax({
   method: "get",
@@ -102,12 +108,16 @@ $('#banPickBtn').on('click', function() {
   });
 });
 
+
+
+/**
+ *
+ * tools
+ *
+ */
+
 // new tab
-$('#ticketMapUrl').on('click', 'a', function(){
-  chrome.tabs.create({url: $(this).attr('href')});
-  return false;
-});
-$('#ticketBuyUrl').on('click', 'a', function(){
+$('#ticketMapUrl, #ticketBuyUrl').on('click', 'a', function(){
   chrome.tabs.create({url: $(this).attr('href')});
   return false;
 });
