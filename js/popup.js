@@ -52,6 +52,56 @@ $('#gameScoreBtn').on('click', function() {
   });
 });
 
+// get champions info
+var championsInfo = null;
+$.ajax({
+    method: "get",
+    url: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?locale=zh_CN&champData=image&api_key=109f5057-289d-44cd-bccc-6ff8600b0926",
+    dataType: 'json',
+    done: function(data) {
+      console.log(data);
+    },
+    complete: function(data) {
+      console.log(data);
+    },
+    success: function (data) {
+      championsInfo = data.data;
+    }
+  });
+// get game top 10 ban pick
+$('#banPickBtn').on('click', function() {
+  $.ajax({
+    method: "get",
+    url: "http://lol.qq.com/cms/match2/data/LOL_MATCH2_GAME_16_BAN_PICK_TOP_TEN.js",
+    dataType: 'json',
+    done: function(data) {
+      console.log(data);
+    },
+    complete: function(data) {
+      console.log(data);
+    },
+    success: function (data) {
+      var banData = data.msg.ban;
+      var pickData = data.msg.pick;
+
+      var banHtml = '';
+      var pickHtml = '';
+
+      for (var ban in banData) {
+        var champion = _.find(championsInfo, {'id': parseInt(banData[ban].ChampionId)});
+        banHtml += '<tr><td>' + '<img src="' + 'http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/' + champion.image.full + '">' + champion.name + ' ' + champion.title + '</td><td>' + banData[ban].ban + '</td><td>' + banData[ban].ban_rate + '%</td><td>' + banData[ban].win_rate + '%</td></tr>';
+      }
+      for (var pick in pickData) {
+        var champion = _.find(championsInfo, {'id': parseInt(pickData[pick].ChampionId)});
+        pickHtml += '<tr><td>' + '<img src="' + 'http://ddragon.leagueoflegends.com/cdn/6.6.1/img/champion/' + champion.image.full + '">' + champion.name + ' ' + champion.title + '</td><td>' + pickData[pick].pick + '</td><td>' + pickData[pick].pick_rate + '%</td><td>' + pickData[pick].win_rate + '%</td></tr>';
+      }
+
+      $('#gameBanpick .ban table tbody').html(banHtml);
+      $('#gameBanpick .pick table tbody').html(pickHtml);
+    }
+  });
+});
+
 // new tab
 $('#ticketMapUrl').on('click', 'a', function(){
   chrome.tabs.create({url: $(this).attr('href')});

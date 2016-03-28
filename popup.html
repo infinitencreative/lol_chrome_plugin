@@ -10,7 +10,7 @@ value "popup.html".
   <title>LOL Matches Info</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
 <!-- <div class="game-header">
@@ -40,7 +40,7 @@ value "popup.html".
         <a href="#gameScore" aria-controls="gameScore" role="tab" data-toggle="tab" id="gameScoreBtn">积分榜</a>
       </li>
       <li role="presentation">
-        <a href="#gameBanpick" aria-controls="gameBanpick" role="tab" data-toggle="tab">Top BP</a>
+        <a href="#gameBanpick" aria-controls="gameBanpick" role="tab" data-toggle="tab" id="banPickBtn">Top BP</a>
       </li>
       <li role="presentation">
         <a href="#gameContact" aria-controls="gameContact" role="tab" data-toggle="tab">联系&建议</a>
@@ -66,8 +66,10 @@ value "popup.html".
         <p class="ticket-game-traffic" id="ticketGameTraffic"></p>
         <div class="ticket-map-url" id="ticketMapUrl"></div>
       </div>
+
       <!-- game matches -->
       <div role="tabpanel" class="tab-pane" id="GameMatch">...GameMatch</div>
+
       <!-- team score -->
       <div role="tabpanel" class="tab-pane" id="gameScore">
         <div class="group-a">
@@ -111,8 +113,47 @@ value "popup.html".
           </table>
         </div>
       </div>
+
       <!-- game ban & pick -->
-      <div role="tabpanel" class="tab-pane" id="gameBanpick">...gameBanpick</div>
+      <div role="tabpanel" class="tab-pane" id="gameBanpick">
+        <div class="ban">
+        <h3>禁用率</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>英雄</th>
+              <th>禁用次数</th>
+              <th>禁用率</th>
+              <th>胜率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>获取数据中...</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="pick">
+        <h3>使用率</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>英雄</th>
+              <th>使用次数</th>
+              <th>使用率</th>
+              <th>胜率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>获取数据中...</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
       <!-- contact -->
       <div role="tabpanel" class="tab-pane" id="gameContact">...gameContact</div>
     </div>
@@ -125,6 +166,7 @@ value "popup.html".
 
 <script src="js/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/lodash.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/popup.js"></script>
 </script>
 </body>

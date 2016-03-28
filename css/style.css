@@ -68,6 +68,10 @@ html, body, * {
 .game-content .tab-content .game-intro {
     margin-bottom: 20px;
 }
+.game-content #gameBanpick img {
+    height: 50px;
+    margin-right: 10px;
+}
 
 /* game footer */
 .game-footer {
