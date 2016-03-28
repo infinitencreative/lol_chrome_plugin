@@ -37,7 +37,7 @@ value "popup.html".
         <a href="#GameMatch" aria-controls="GameMatch" role="tab" data-toggle="tab">赛程</a>
       </li>
       <li role="presentation">
-        <a href="#gameScore" aria-controls="gameScore" role="tab" data-toggle="tab">积分榜</a>
+        <a href="#gameScore" aria-controls="gameScore" role="tab" data-toggle="tab" id="gameScoreBtn">积分榜</a>
       </li>
       <li role="presentation">
         <a href="#gameBanpick" aria-controls="gameBanpick" role="tab" data-toggle="tab">Top BP</a>
@@ -49,6 +49,7 @@ value "popup.html".
 
     <!-- Tab panes -->
     <div class="tab-content">
+      <!-- game intro -->
       <div role="tabpanel" class="tab-pane active game-intro" id="gameIntro">
         <h1>比赛信息</h1>
         <h3>比赛名称：</h3><p class="game-title" id="gameTitle"></p>
@@ -65,9 +66,54 @@ value "popup.html".
         <p class="ticket-game-traffic" id="ticketGameTraffic"></p>
         <div class="ticket-map-url" id="ticketMapUrl"></div>
       </div>
+      <!-- game matches -->
       <div role="tabpanel" class="tab-pane" id="GameMatch">...GameMatch</div>
-      <div role="tabpanel" class="tab-pane" id="gameScore">...gameScore</div>
+      <!-- team score -->
+      <div role="tabpanel" class="tab-pane" id="gameScore">
+        <div class="group-a">
+          <h3>Group A</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>队伍</th>
+                <th>总排名</th>
+                <th>总分</th>
+                <th>胜</th>
+                <th>负</th>
+                <th>总场数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>获取数据中...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="group-b">
+          <h3>Group B</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>队伍</th>
+                <th>总排名</th>
+                <th>总分</th>
+                <th>胜</th>
+                <th>负</th>
+                <th>总场数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>获取数据中...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- game ban & pick -->
       <div role="tabpanel" class="tab-pane" id="gameBanpick">...gameBanpick</div>
+      <!-- contact -->
       <div role="tabpanel" class="tab-pane" id="gameContact">...gameContact</div>
     </div>
   </div>

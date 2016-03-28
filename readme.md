@@ -2,6 +2,12 @@
 
 ---
 
+### Todo
+* Language: English, Chinese
+* Add LPL, LMS, LCK, NA, EU
+
+---
+
 ### API
 ###### Get team score (Desc)
 * URL: http://lol.qq.com/cms/match2/data/LOL_MATCH2_LPL_GROUP_TEAM_SCORE_TOP_6.js?_=1459069568660
