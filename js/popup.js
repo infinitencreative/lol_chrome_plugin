@@ -61,19 +61,20 @@ $('#gameScoreBtn').on('click', function() {
 // get champions info
 var championsInfo = null;
 $.ajax({
-    method: "get",
-    url: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?locale=zh_CN&champData=image&api_key=109f5057-289d-44cd-bccc-6ff8600b0926",
-    dataType: 'json',
-    done: function(data) {
-      console.log(data);
-    },
-    complete: function(data) {
-      console.log(data);
-    },
-    success: function (data) {
-      championsInfo = data.data;
-    }
-  });
+  method: "get",
+  url: "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?locale=zh_CN&champData=image&api_key=109f5057-289d-44cd-bccc-6ff8600b0926",
+  dataType: 'json',
+  done: function(data) {
+    // console.log(data);
+  },
+  complete: function(data) {
+    // console.log(data);
+  },
+  success: function (data) {
+    championsInfo = data.data;
+  }
+});
+
 // get game top 10 ban pick
 $('#banPickBtn').on('click', function() {
   $.ajax({
@@ -81,10 +82,10 @@ $('#banPickBtn').on('click', function() {
     url: "http://lol.qq.com/cms/match2/data/LOL_MATCH2_GAME_16_BAN_PICK_TOP_TEN.js",
     dataType: 'json',
     done: function(data) {
-      console.log(data);
+      // console.log(data);
     },
     complete: function(data) {
-      console.log(data);
+      // console.log(data);
     },
     success: function (data) {
       var banData = data.msg.ban;
@@ -108,7 +109,71 @@ $('#banPickBtn').on('click', function() {
   });
 });
 
+// game matches
+var GameProcId = [110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+$('.game-week').on('click', function(elem) {
+  var index = parseInt(this.dataset.toggle) - 1;
+  $.ajax({
+    method: "get",
+    url: "http://apps.game.qq.com/lol/match/apis/searchBMatchInfo.php?p1=16&p5=1&p7=" + GameProcId[index] + "&r1=BMatchLists&pagesize=50&_=" + Date.now(),
+    dataType: 'json',
+    done: function(data) {
+      console.log(data);
+    },
+    complete: function(data) {
+      var dataObject = JSON.parse(data.responseText.slice(16, -1));
+      var gameMatches = dataObject.msg.result;
+      var html = '';
 
+      for (game in gameMatches) {
+        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - 12 * 60 * 60 * 1000);
+        if (ifGameDone) {
+          html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + ' 比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+        } else {
+          html = '比赛信息还未更新。';
+          break;
+        }
+      }
+
+      $('#GameMatch .game-content').html(html);
+    },
+    success: function (data) {
+      console.log(data);
+    }
+  });
+});
+$('#gameMatchBtn').on('click', function() {
+  var begin = new Date('2016-01-14 17:00:00');
+  var index = Math.floor((Date.now() - begin.getTime())/ 1000 / 24 / 60 / 60 / 7 - 2) - 1;
+  $.ajax({
+    method: "get",
+    url: "http://apps.game.qq.com/lol/match/apis/searchBMatchInfo.php?p1=16&p5=1&p7=" + GameProcId[index] + "&r1=BMatchLists&pagesize=50&_=" + Date.now(),
+    dataType: 'json',
+    done: function(data) {
+      console.log(data);
+    },
+    complete: function(data) {
+      var dataObject = JSON.parse(data.responseText.slice(16, -1));
+      var gameMatches = dataObject.msg.result;
+      var html = '';
+
+      for (game in gameMatches) {
+        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - 12 * 60 * 60 * 1000);
+        if (ifGameDone) {
+          html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + ' 比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+        } else {
+          html = '比赛信息还未更新。';
+          break;
+        }
+      }
+
+      $('#GameMatch .game-content').html(html);
+    },
+    success: function (data) {
+      console.log(data);
+    }
+  });
+});
 
 /**
  *
@@ -117,7 +182,7 @@ $('#banPickBtn').on('click', function() {
  */
 
 // new tab
-$('#ticketMapUrl, #ticketBuyUrl').on('click', 'a', function(){
+$('#ticketMapUrl, #ticketBuyUrl, #githubBtn, #GameMatch .game-content').on('click', 'a', function(){
   chrome.tabs.create({url: $(this).attr('href')});
   return false;
 });

@@ -8,7 +8,7 @@ html, body, * {
 .game-header {
     width: 100%;
     background-color: #cfba6b;
-        margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .game-header a {
     color: #fff;
@@ -50,6 +50,10 @@ html, body, * {
     color: #cfba6b;
 }
 .game-content .nav-tabs {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
     border-bottom: none;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -64,6 +68,7 @@ html, body, * {
 }
 .game-content .tab-content {
     padding: 0 10px;
+    margin-top: 55px;
 }
 .game-content .tab-content .game-intro {
     margin-bottom: 20px;
@@ -71,6 +76,10 @@ html, body, * {
 .game-content #gameBanpick img {
     height: 50px;
     margin-right: 10px;
+}
+.game-content #GameMatch .select {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* game footer */

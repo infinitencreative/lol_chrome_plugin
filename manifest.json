@@ -10,7 +10,7 @@
     "default_icon": "images/lol_logo.png",
     "default_popup": "popup.html"
     },
-    "permissions": [ 
-    "http://lol.qq.com/"
+    "permissions": [
+    "http://*/*"
     ]
 }

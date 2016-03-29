@@ -34,7 +34,7 @@ value "popup.html".
         <a href="#gameIntro" aria-controls="gameIntro" role="tab" data-toggle="tab">介绍</a>
       </li>
       <li role="presentation">
-        <a href="#GameMatch" aria-controls="GameMatch" role="tab" data-toggle="tab">赛程</a>
+        <a href="#GameMatch" aria-controls="GameMatch" role="tab" data-toggle="tab" id="gameMatchBtn">赛程</a>
       </li>
       <li role="presentation">
         <a href="#gameScore" aria-controls="gameScore" role="tab" data-toggle="tab" id="gameScoreBtn">积分榜</a>
@@ -68,7 +68,32 @@ value "popup.html".
       </div>
 
       <!-- game matches -->
-      <div role="tabpanel" class="tab-pane" id="GameMatch">...GameMatch</div>
+      <div role="tabpanel" class="tab-pane" id="GameMatch">
+        <div class="select">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              选择赛程
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#" class="game-week" data-toggle="1">第一周</a></li>
+              <li><a href="#" class="game-week" data-toggle="2">第二周</a></li>
+              <li><a href="#" class="game-week" data-toggle="3">第三周</a></li>
+              <li><a href="#" class="game-week" data-toggle="4">第四周</a></li>
+              <li><a href="#" class="game-week" data-toggle="5">第五周</a></li>
+              <li><a href="#" class="game-week" data-toggle="6">第六周</a></li>
+              <li><a href="#" class="game-week" data-toggle="7">第七周</a></li>
+              <li><a href="#" class="game-week" data-toggle="8">第八周</a></li>
+              <li><a href="#" class="game-week" data-toggle="9">第九周</a></li>
+              <li><a href="#" class="game-week" data-toggle="10">第十周</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+        
+        <div class="game-content">获取数据中...</div>
+      </div>
 
       <!-- team score -->
       <div role="tabpanel" class="tab-pane" id="gameScore">
@@ -87,7 +112,7 @@ value "popup.html".
             </thead>
             <tbody>
               <tr>
-              <td>获取数据中...</td>
+                <td>获取数据中...</td>
               </tr>
             </tbody>
           </table>
@@ -107,7 +132,7 @@ value "popup.html".
             </thead>
             <tbody>
               <tr>
-              <td>获取数据中...</td>
+                <td>获取数据中...</td>
               </tr>
             </tbody>
           </table>
@@ -117,40 +142,40 @@ value "popup.html".
       <!-- game ban & pick -->
       <div role="tabpanel" class="tab-pane" id="gameBanpick">
         <div class="ban">
-        <h3>禁用率</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>英雄</th>
-              <th>禁用次数</th>
-              <th>禁用率</th>
-              <th>胜率</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>获取数据中...</td>
-            </tr>
-          </tbody>
-        </table>
+          <h3>禁用率</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>英雄</th>
+                <th>禁用次数</th>
+                <th>禁用率</th>
+                <th>胜率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>获取数据中...</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="pick">
-        <h3>使用率</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>英雄</th>
-              <th>使用次数</th>
-              <th>使用率</th>
-              <th>胜率</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>获取数据中...</td>
-            </tr>
-          </tbody>
-        </table>
+          <h3>使用率</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>英雄</th>
+                <th>使用次数</th>
+                <th>使用率</th>
+                <th>胜率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>获取数据中...</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -160,19 +185,21 @@ value "popup.html".
         <p>Email: InfiniteNDev@126.com</p>
         <p>可以通过邮件提供建议或者联系我们~ 邮件主题请注明关于英雄联盟Chrome插件~</p>
         <p>感谢使用~ 鞠躬~</p>
+        <hr>
+        <div id="githubBtn"><a class="btn btn-primary" href="https://github.com/infinitencreative">进入Github</a></div >
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="game-footer">
-  <p>Copyright © 2016 InfiniteNDev</p>
-</div>
+  <div class="game-footer">
+    <p>Copyright © 2016 InfiniteNDev</p>
+  </div>
 
-<script src="js/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/lodash.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/popup.js"></script>
+  <script src="js/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/lodash.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/popup.js"></script>
 </script>
 </body>
 </html>
