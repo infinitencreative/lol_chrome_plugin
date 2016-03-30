@@ -1,6 +1,8 @@
 # Chrome Plugin - LPL Match Information
 All API is from Riot API or <http://lol.qq.com>.
 
+---
+
 ### Todo
 * Language: English, Chinese
 * Add LPL, LMS, LCK, NA, EU
