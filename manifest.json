@@ -1,13 +1,18 @@
 {
     "manifest_version": 2,
-    "name": "LOL Matches Info",
+    "name": "LoL Match Info",
     "version": "1.0",
     "author": "InfiniteNDev",
 
     "description": "本工具提供英雄联盟赛事查询、积分榜查询等。",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
 
     "browser_action": {
-    "default_icon": "images/lol_logo.png",
+    "default_icon": "icon16.png",
     "default_popup": "popup.html"
     },
     "permissions": [
