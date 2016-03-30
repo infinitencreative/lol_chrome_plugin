@@ -18,6 +18,14 @@ All API is from [Riot API](https://developer.riotgames.com/) or <http://lol.qq.c
 
 ---
 
+### Screenshots
+![screenshot](screenshots/screenshots1.png)
+![screenshot](screenshots/screenshots2.png)
+![screenshot](screenshots/screenshots3.png)
+![screenshot](screenshots/screenshots4.png)
+
+---
+
 ### Todo
 * Language: English, Chinese
 * Add LPL, LMS, LCK, NA, EU
