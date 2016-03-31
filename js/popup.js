@@ -109,8 +109,10 @@ $('#banPickBtn').on('click', function() {
   });
 });
 
-// game matches
+// get game matches
 var GameProcId = [110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+var gapTime = 12 * 60 * 60 * 1000;
+var gapTime = 0;
 $('.game-week').on('click', function(elem) {
   var index = parseInt(this.dataset.toggle) - 1;
   $.ajax({
@@ -126,11 +128,15 @@ $('.game-week').on('click', function(elem) {
       var html = '';
 
       for (game in gameMatches) {
-        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - 12 * 60 * 60 * 1000);
+        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - gapTime);
         if (ifGameDone) {
-          html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + ' 比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+          if (gameMatches[game].NewsId != 0){
+            html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + '<br/>比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+          } else {
+            html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + '<br/>比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/lpl/">点此进入</a><hr/>';
+          }
         } else {
-          html = '比赛信息还未更新。';
+          html += '比赛信息还未更新。';
           break;
         }
       }
@@ -158,11 +164,15 @@ $('#gameMatchBtn').on('click', function() {
       var html = '';
 
       for (game in gameMatches) {
-        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - 12 * 60 * 60 * 1000);
+        var ifGameDone = (new Date (gameMatches[game].MatchDate)) < new Date(new Date().getTime() - gapTime);
         if (ifGameDone) {
-          html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + ' 比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+          if (gameMatches[game].NewsId != 0){
+            html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + '<br/>比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/match_video.shtml?nid=' + gameMatches[game].NewsId + '">点此进入</a><hr/>';
+          } else {
+            html += '比赛名称：' + gameMatches[game].GameName + '<br/>赛程：' + gameMatches[game].GameProcName + '<br/>比赛日期：' + gameMatches[game].MatchDate + '<br/>比赛队伍：' + gameMatches[game].bMatchName + '<br/>比赛结果：' + gameMatches[game].ScoreA + ' : ' + gameMatches[game].ScoreB + '<br/>战报：' + '<a href="http://lol.qq.com/match/match_data.shtml?bmid=' + gameMatches[game].bMatchId + '">点此进入</a><br/>图文直播：<a href="' + gameMatches[game].Chat2 + '">点此进入</a><br/>视频地址：<a href="' + 'http://lol.qq.com/match/lpl/">点此进入</a><hr/>';
+          }
         } else {
-          html = '比赛信息还未更新。';
+          html += '比赛信息还未更新。';
           break;
         }
       }
